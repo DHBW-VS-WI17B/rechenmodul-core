@@ -1,0 +1,19 @@
+{
+  "name": "rechenmodul-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.robingenz.de/dhbw-vs-projekt-1/rechenmodul-core.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "1.19.1",
+    "typescript": "^3.7.5"
+  }
+}
