@@ -1,9 +1,9 @@
 import { IPoint } from "./contracts/IPoint";
 
 export class Point implements IPoint {
-  constructor() {
-    this.x = 0;
-    this.y = 0;
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
   }
   x: number;
   y: number;
