@@ -4,7 +4,7 @@ import { IResult } from "./contracts/IResult";
 import { Result } from "./Result";
 import { IRegressionGraph } from "./contracts/IRegressionGraph";
 
-export class CalcTest implements ICalc {
+export class Calc implements ICalc {
   Calc(Input: IPoint[]): Promise<IResult> {
     throw new Error("Method not implemented.");
   }
