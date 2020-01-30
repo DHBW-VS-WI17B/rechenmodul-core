@@ -9,13 +9,13 @@ export class Result implements IResult {
     this.variance = 0;
     this.covariance = 0;
     this.correlationCoefficient = 0;
-    this.regressionGraf = new RegressionGraph();
+    this.regressionGraph = new RegressionGraph();
     this.points = [];
   }
   oneDimensionalMean: number;
   variance: number;
   covariance: number;
   correlationCoefficient: number;
-  regressionGraf: IRegressionGraph;
+  regressionGraph: IRegressionGraph;
   points: IPoint[];
 }
