@@ -14,11 +14,11 @@ import { calcCorrelationCoefficient } from "./calcCorrelationCoefficient";
 export async function calcRegressionGraph(
   points: IPoint[]
 ): Promise<IRegressionGraph> {
-  let graph = new RegressionGraph();
+  const graph = new RegressionGraph();
 
-  let covariance = await calcCovariance(points);
-  let variance = await calcVariance(points);
-  let oneDimensionalMean = await calcOneDimensionalMean(points);
+  const covariance = await calcCovariance(points);
+  const variance = await calcVariance(points);
+  const oneDimensionalMean = await calcOneDimensionalMean(points);
 
   graph.incline = covariance / variance.x;
 

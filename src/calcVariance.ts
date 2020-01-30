@@ -8,7 +8,7 @@ import { calcOneDimensionalMean } from "./calcOneDimensionalMean";
  * @returns Variance
  */
 export async function calcVariance(points: IPoint[]): Promise<IPoint> {
-  let mean = await calcOneDimensionalMean(points);
+  const mean = await calcOneDimensionalMean(points);
 
   let sumX = 0;
   let sumY = 0;
@@ -17,8 +17,8 @@ export async function calcVariance(points: IPoint[]): Promise<IPoint> {
     sumY += Math.pow(point.y - mean.y, 2);
   });
 
-  let varianceX = (1 / (points.length - 1)) * sumX;
-  let varianceY = (1 / (points.length - 1)) * sumY;
+  const varianceX = (1 / (points.length - 1)) * sumX;
+  const varianceY = (1 / (points.length - 1)) * sumY;
 
   return new Point(varianceX, varianceY);
 }

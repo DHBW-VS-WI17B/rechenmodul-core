@@ -10,10 +10,10 @@ import { calcVariance } from "./calcVariance";
 export async function calcCorrelationCoefficient(
   points: IPoint[]
 ): Promise<number> {
-  let covariance = await calcCovariance(points);
-  let variance = await calcVariance(points);
+  const covariance = await calcCovariance(points);
+  const variance = await calcVariance(points);
 
-  let sqrtVariance = Math.sqrt(variance.x * variance.y);
+  const sqrtVariance = Math.sqrt(variance.x * variance.y);
 
   return covariance / sqrtVariance;
 }
