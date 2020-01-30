@@ -49,7 +49,12 @@ export class Calc implements ICalc {
     return (1 / (points.length - 1)) * sum;
   }
   GetCorrelationCoefficient(points: IPoint[]): number {
-    throw new Error("Method not implemented.");
+    let covariance = this.GetCovariance(points);
+    let variance = this.GetVariance(points);
+
+    let sqrtVariance = Math.sqrt(variance.x * variance.y);
+
+    return covariance / sqrtVariance;
   }
   GetRegressionGraph(points: IPoint[]): IRegressionGraph {
     throw new Error("Method not implemented.");
