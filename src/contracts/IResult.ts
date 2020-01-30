@@ -6,6 +6,6 @@ export interface IResult {
   variance: number;
   covariance: number;
   correlationCoefficient: number;
-  regressionGraf: IRegressionGraph;
+  regressionGraph: IRegressionGraph;
   points: IPoint[];
 }
