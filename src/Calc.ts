@@ -27,7 +27,7 @@ export class Calc implements ICalc {
     });
 
     if (checked.length > 30) {
-      throw new Error("Array must contain 30 or less diffrent values");
+      throw new Error("Array must contain 30 or less different values");
     }
   }
   GetOneDimensionalMean(points: IPoint[]): IPoint {

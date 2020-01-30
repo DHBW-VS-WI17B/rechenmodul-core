@@ -263,7 +263,7 @@ test("test pointlist for validity", () => {
 
   expect(() => {
     calc.ValidatePointList(pointsLengthTest);
-  }).toThrowError("Array must contain 30 or less diffrent values");
+  }).toThrowError("Array must contain 30 or less different values");
 
   pointsLengthTest.push(new Point(10, 10));
 
