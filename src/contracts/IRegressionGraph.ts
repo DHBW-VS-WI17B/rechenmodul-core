@@ -1,5 +1,5 @@
 export interface IRegressionGraph {
-  xAxisSection: number;
+  yAxisSection: number;
   incline: number;
   quality: number;
 }
