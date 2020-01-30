@@ -11,7 +11,7 @@ export class Calc implements ICalc {
   ValidatePointList(points: IPoint[]): void {
     throw new Error("Method not implemented.");
   }
-  GetOneDimensionalMean(points: IPoint[]): number {
+  GetOneDimensionalMean(points: IPoint[]): IPoint {
     throw new Error("Method not implemented.");
   }
   GetVariance(points: IPoint[]): number {

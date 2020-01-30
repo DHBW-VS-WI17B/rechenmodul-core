@@ -9,7 +9,7 @@ export interface ICalc {
    */
   Calc(Input: IPoint[]): Promise<IResult>;
 
-   /**
+  /**
    *
    * @param points Points to validate
    */
@@ -20,7 +20,7 @@ export interface ICalc {
    * @param points List of points to calculate the one dimensional mean for
    * @returns one dimensional mean
    */
-  GetOneDimensionalMean(points: IPoint[]): number;
+  GetOneDimensionalMean(points: IPoint[]): IPoint;
 
   /**
    *
