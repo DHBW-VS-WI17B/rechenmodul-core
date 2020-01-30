@@ -3,6 +3,7 @@ import { IPoint } from "./contracts/IPoint";
 import { IResult } from "./contracts/IResult";
 import { Result } from "./Result";
 import { IRegressionGraph } from "./contracts/IRegressionGraph";
+import { Point } from "./Point";
 
 export class Calc implements ICalc {
   Calc(Input: IPoint[]): Promise<IResult> {
@@ -12,7 +13,15 @@ export class Calc implements ICalc {
     throw new Error("Method not implemented.");
   }
   GetOneDimensionalMean(points: IPoint[]): IPoint {
-    throw new Error("Method not implemented.");
+    let sumX = 0;
+    let sumY = 0;
+
+    points.forEach(point => {
+      sumX += point.x;
+      sumY += point.y;
+    });
+
+    return new Point(sumX / points.length, sumY / points.length);
   }
   GetVariance(points: IPoint[]): number {
     throw new Error("Method not implemented.");
