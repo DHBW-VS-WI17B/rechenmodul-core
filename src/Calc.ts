@@ -23,10 +23,10 @@ export class Calc implements ICalc {
 
     return new Point(sumX / points.length, sumY / points.length);
   }
-  GetVariance(points: IPoint[]): number {
+  GetVariance(points: IPoint[]): IPoint {
     throw new Error("Method not implemented.");
   }
-  GetCovariance(points: IPoint[]): number {
+  GetCovariance(points: IPoint[]): IPoint {
     throw new Error("Method not implemented.");
   }
   GetCorrelationCoefficient(points: IPoint[]): number {

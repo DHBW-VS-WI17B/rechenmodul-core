@@ -1,5 +1,6 @@
 import { IPoint } from "./IPoint";
 import { IResult } from "./IResult";
+import { IRegressionGraph } from "./IRegressionGraph";
 
 export interface ICalc {
   /**
@@ -27,14 +28,14 @@ export interface ICalc {
    * @param points List of points to calculcate the variance for
    * @returns variance
    */
-  GetVariance(points: IPoint[]): number;
+  GetVariance(points: IPoint[]): IPoint;
 
   /**
    *
    * @param points List of points to calculcate the covariance according to pearson algorythm for
    * @returns covariance
    */
-  GetCovariance(points: IPoint[]): number;
+  GetCovariance(points: IPoint[]): IPoint;
 
   /**
    *
