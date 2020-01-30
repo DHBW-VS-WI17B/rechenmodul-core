@@ -11,7 +11,24 @@ export class Calc implements ICalc {
     throw new Error("Method not implemented.");
   }
   ValidatePointList(points: IPoint[]): void {
-    throw new Error("Method not implemented.");
+    if (points.length <= 1) {
+      throw new Error("Array must contain at least two points");
+    }
+    if (points.length > 100) {
+      throw new Error("Array must contain 100 or less entries");
+    }
+
+    let checked: IPoint[] = [];
+
+    points.forEach(point => {
+      if (checked.indexOf(point) == -1) {
+        checked.push(point);
+      }
+    });
+
+    if (checked.length > 30) {
+      throw new Error("Array must contain 30 or less diffrent values");
+    }
   }
   GetOneDimensionalMean(points: IPoint[]): IPoint {
     let sumX = 0;
