@@ -205,7 +205,7 @@ test("gets the regression graph for the given list of points", () => {
 
   let result = calc.GetRegressionGraph(points);
 
-  expect(result.incline).toBeCloseTo(-0.1586206);
+  expect(result.incline).toBeCloseTo(-0.05938);
   expect(result.quality).toBeCloseTo(0.00043357);
-  expect(result.yAxisSection).toBeCloseTo(-0.05938);
+  expect(result.yAxisSection).toBeCloseTo(2.2504302925989674);
 });
