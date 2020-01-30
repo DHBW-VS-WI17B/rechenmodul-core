@@ -35,7 +35,7 @@ export interface ICalc {
    * @param points List of points to calculcate the covariance according to pearson algorythm for
    * @returns covariance
    */
-  GetCovariance(points: IPoint[]): IPoint;
+  GetCovariance(points: IPoint[]): number;
 
   /**
    *
