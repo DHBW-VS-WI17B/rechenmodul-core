@@ -4,6 +4,7 @@ import { IResult } from "./contracts/IResult";
 import { Result } from "./Result";
 import { IRegressionGraph } from "./contracts/IRegressionGraph";
 import { Point } from "./Point";
+import { RegressionGraph } from "./RegressionGraph";
 
 export class Calc implements ICalc {
   Calc(Input: IPoint[]): Promise<IResult> {
@@ -57,6 +58,19 @@ export class Calc implements ICalc {
     return covariance / sqrtVariance;
   }
   GetRegressionGraph(points: IPoint[]): IRegressionGraph {
-    throw new Error("Method not implemented.");
+    let graph = new RegressionGraph();
+
+    let covariance = this.GetCovariance(points);
+    let variance = this.GetVariance(points);
+    let oneDimensionalMean = this.GetOneDimensionalMean(points);
+
+    graph.incline = covariance / variance.x;
+
+    graph.yAxisSection =
+      oneDimensionalMean.y - graph.incline * oneDimensionalMean.x;
+
+    graph.quality = Math.pow(this.GetCorrelationCoefficient(points), 2);
+
+    return graph;
   }
 }
