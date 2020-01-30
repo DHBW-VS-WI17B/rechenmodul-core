@@ -1,41 +1,41 @@
 stages:
-    - build
-    - test
+  - build
+  - test
 
 cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-        - node_modules/
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
 
 build:
-    image: node:10
-    stage: build
-    tags:
-        - docker
-    script:
-        - node -v
-        - npm -v
-        - npm install --quiet
-        - npm run build
-    artifacts:
-        paths:
-            - dist/
-    only:
-        - master
-        - dev
-        - merge_requests
+  image: node:10
+  stage: build
+  tags:
+    - docker
+  script:
+    - node -v
+    - npm -v
+    - npm install --quiet
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+  only:
+    - master
+    - dev
+    - merge_requests
 
 test:
-    image: node:10
-    stage: test
-    tags:
-        - docker
-    script:
-        - node -v
-        - npm -v
-        - npm install --quiet
-        - npm run test
-    only:
-        - master
-        - dev
-        - merge_requests
+  image: node:10
+  stage: test
+  tags:
+    - docker
+  script:
+    - node -v
+    - npm -v
+    - npm install --quiet
+    - npm run test
+  only:
+    - master
+    - dev
+    - merge_requests

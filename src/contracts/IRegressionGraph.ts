@@ -5,13 +5,13 @@ export interface IRegressionGraph {
   /**
    * Y-axis section.
    */
-  yAxisSection: number;
+  yAxisSection: number
   /**
    * Incline of the regression graph.
    */
-  incline: number;
+  incline: number
   /**
    * Quality of the regression graph.
    */
-  quality: number;
+  quality: number
 }

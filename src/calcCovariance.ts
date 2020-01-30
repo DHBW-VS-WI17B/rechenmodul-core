@@ -1,5 +1,5 @@
-import { IPoint } from "./contracts/IPoint";
-import { calcOneDimensionalMean } from "./calcOneDimensionalMean";
+import { IPoint } from './contracts/IPoint'
+import { calcOneDimensionalMean } from './calcOneDimensionalMean'
 
 /**
  * Calculates the covariance.
@@ -7,11 +7,11 @@ import { calcOneDimensionalMean } from "./calcOneDimensionalMean";
  * @returns Covariance
  */
 export async function calcCovariance(points: IPoint[]): Promise<number> {
-  const mean = await calcOneDimensionalMean(points);
-  let sum = 0;
+  const mean = await calcOneDimensionalMean(points)
+  let sum = 0
   points.forEach(point => {
-    sum += (point.x - mean.x) * (point.y - mean.y);
-  });
+    sum += (point.x - mean.x) * (point.y - mean.y)
+  })
 
-  return (1 / (points.length - 1)) * sum;
+  return (1 / (points.length - 1)) * sum
 }

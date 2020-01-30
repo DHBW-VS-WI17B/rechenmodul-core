@@ -1,4 +1,4 @@
-import { Point } from "../../src/entities/Point";
+import { Point } from '../../src/entities/Point'
 
 export const points = [
   new Point(1, 0),
@@ -30,5 +30,5 @@ export const points = [
   new Point(5, 0),
   new Point(5, 0),
   new Point(5, 1),
-  new Point(5, 5)
-];
+  new Point(5, 5),
+]

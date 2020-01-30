@@ -1,10 +1,10 @@
-import { IPoint } from "../contracts/IPoint";
+import { IPoint } from '../contracts/IPoint'
 
 export class Point implements IPoint {
   constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
+    this.x = x
+    this.y = y
   }
-  x: number;
-  y: number;
+  x: number
+  y: number
 }
