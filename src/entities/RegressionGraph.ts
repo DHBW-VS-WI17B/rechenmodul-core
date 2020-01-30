@@ -1,4 +1,4 @@
-import { IRegressionGraph } from "./contracts/IRegressionGraph";
+import { IRegressionGraph } from "../contracts/IRegressionGraph";
 
 export class RegressionGraph implements IRegressionGraph {
   constructor() {
