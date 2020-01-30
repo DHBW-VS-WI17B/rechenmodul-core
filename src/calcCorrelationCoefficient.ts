@@ -7,9 +7,11 @@ import { calcVariance } from "./calcVariance";
  * @param points List of points
  * @returns Correlation coefficient
  */
-export function calcCorrelationCoefficient(points: IPoint[]): number {
-  let covariance = calcCovariance(points);
-  let variance = calcVariance(points);
+export async function calcCorrelationCoefficient(
+  points: IPoint[]
+): Promise<number> {
+  let covariance = await calcCovariance(points);
+  let variance = await calcVariance(points);
 
   let sqrtVariance = Math.sqrt(variance.x * variance.y);
 

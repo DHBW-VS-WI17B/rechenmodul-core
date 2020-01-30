@@ -6,8 +6,8 @@ import { calcOneDimensionalMean } from "./calcOneDimensionalMean";
  * @param points List of points
  * @returns Covariance
  */
-export function calcCovariance(points: IPoint[]): number {
-  let mean = calcOneDimensionalMean(points);
+export async function calcCovariance(points: IPoint[]): Promise<number> {
+  let mean = await calcOneDimensionalMean(points);
   let sum = 0;
   points.forEach(point => {
     sum += (point.x - mean.x) * (point.y - mean.y);

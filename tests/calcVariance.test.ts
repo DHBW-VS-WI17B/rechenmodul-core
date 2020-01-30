@@ -1,7 +1,7 @@
 import { Point } from "../src/entities/Point";
 import { calcVariance } from "../src/calcVariance";
 
-test("calculates the variance for the given list of points", () => {
+test("calculates the variance for the given list of points", async () => {
   let points = [
     new Point(1, 0),
     new Point(1, 0),
@@ -35,7 +35,7 @@ test("calculates the variance for the given list of points", () => {
     new Point(5, 5)
   ];
 
-  let result = calcVariance(points);
+  let result = await calcVariance(points);
 
   expect(result.x).toBeCloseTo(2.67124);
   expect(result.y).toBeCloseTo(2.85172);

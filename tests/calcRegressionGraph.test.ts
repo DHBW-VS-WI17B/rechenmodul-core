@@ -1,7 +1,7 @@
 import { Point } from "../src/entities/Point";
 import { calcRegressionGraph } from "../src/calcRegressionGraph";
 
-test("calculates the regression graph for the given list of points", () => {
+test("calculates the regression graph for the given list of points", async () => {
   let points = [
     new Point(1, 0),
     new Point(1, 0),
@@ -35,7 +35,7 @@ test("calculates the regression graph for the given list of points", () => {
     new Point(5, 5)
   ];
 
-  let result = calcRegressionGraph(points);
+  let result = await calcRegressionGraph(points);
 
   expect(result.incline).toBeCloseTo(-0.05938);
   expect(result.quality).toBeCloseTo(0.00043357);

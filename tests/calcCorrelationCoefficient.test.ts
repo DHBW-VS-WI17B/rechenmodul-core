@@ -1,7 +1,7 @@
 import { Point } from "../src/entities/Point";
 import { calcCorrelationCoefficient } from "../src/calcCorrelationCoefficient";
 
-test("gets the correlation coefficient -0.0574704 for the given list of points", () => {
+test("calculates the correlation coefficient for the given list of points", async () => {
   let points = [
     new Point(1, 0),
     new Point(1, 0),
@@ -35,5 +35,5 @@ test("gets the correlation coefficient -0.0574704 for the given list of points",
     new Point(5, 5)
   ];
 
-  expect(calcCorrelationCoefficient(points)).toBeCloseTo(-0.0574704);
+  expect(await calcCorrelationCoefficient(points)).toBeCloseTo(-0.0574704);
 });

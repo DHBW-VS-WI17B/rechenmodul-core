@@ -6,7 +6,9 @@ import { Point } from "./entities/Point";
  * @param points List of points
  * @returns One dimensional mean
  */
-export function calcOneDimensionalMean(points: IPoint[]): IPoint {
+export async function calcOneDimensionalMean(
+  points: IPoint[]
+): Promise<IPoint> {
   let sumX = 0;
   let sumY = 0;
 

@@ -7,8 +7,8 @@ import { calcOneDimensionalMean } from "./calcOneDimensionalMean";
  * @param points List of points
  * @returns Variance
  */
-export function calcVariance(points: IPoint[]): IPoint {
-  let mean = calcOneDimensionalMean(points);
+export async function calcVariance(points: IPoint[]): Promise<IPoint> {
+  let mean = await calcOneDimensionalMean(points);
 
   let sumX = 0;
   let sumY = 0;

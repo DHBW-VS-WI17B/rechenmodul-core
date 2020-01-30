@@ -1,7 +1,7 @@
 import { Point } from "../src/entities/Point";
 import { calcCovariance } from "../src/calcCovariance";
 
-test("calculates the covariance for the given list of points", () => {
+test("calculates the covariance for the given list of points", async () => {
   let points = [
     new Point(1, 0),
     new Point(1, 0),
@@ -35,5 +35,5 @@ test("calculates the covariance for the given list of points", () => {
     new Point(5, 5)
   ];
 
-  expect(calcCovariance(points)).toBeCloseTo(-0.15862);
+  expect(await calcCovariance(points)).toBeCloseTo(-0.15862);
 });

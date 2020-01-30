@@ -1,7 +1,7 @@
 import { Point } from "../src/entities/Point";
 import { calcOneDimensionalMean } from "../src/calcOneDimensionalMean";
 
-test("calculates the one dimensional mean for the given list of points", () => {
+test("calculates the one dimensional mean for the given list of points", async () => {
   let points = [
     new Point(1, 0),
     new Point(1, 0),
@@ -35,7 +35,7 @@ test("calculates the one dimensional mean for the given list of points", () => {
     new Point(5, 5)
   ];
 
-  let result = calcOneDimensionalMean(points);
+  let result = await calcOneDimensionalMean(points);
 
   expect(result.x).toBeCloseTo(2.53333333);
   expect(result.y).toBe(2.1);
