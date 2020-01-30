@@ -84,3 +84,44 @@ test("gets the variance P(2.67124|2.85172) for the given list of points", () => 
   expect(result.x).toBeCloseTo(2.67124);
   expect(result.y).toBeCloseTo(2.85172);
 });
+
+test("gets the covariance -0.158620 for the given list of points", () => {
+  let calc = new Calc();
+
+  let points = [
+    new Point(1, 0),
+    new Point(1, 0),
+    new Point(1, 1),
+    new Point(1, 1),
+    new Point(1, 1),
+    new Point(1, 4),
+    new Point(0, 3),
+    new Point(0, 3),
+    new Point(0, 3),
+    new Point(2, 1),
+    new Point(2, 1),
+    new Point(2, 1),
+    new Point(2, 1),
+    new Point(2, 1),
+    new Point(2, 3),
+    new Point(2, 5),
+    new Point(2, 5),
+    new Point(3, 2),
+    new Point(3, 4),
+    new Point(3, 4),
+    new Point(4, 1),
+    new Point(4, 1),
+    new Point(4, 3),
+    new Point(4, 4),
+    new Point(4, 4),
+    new Point(5, 0),
+    new Point(5, 0),
+    new Point(5, 0),
+    new Point(5, 1),
+    new Point(5, 5)
+  ];
+
+  let result = calc.GetCovariance(points);
+
+  expect(result).toBeCloseTo(-0.15862);
+});
