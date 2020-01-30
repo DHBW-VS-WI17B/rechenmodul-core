@@ -1,8 +1,9 @@
 {
   "name": "rechenmodul-core",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Contains the math for the rechenmodul project.",
+  "main": "dist/main.js",
+  "types": "dist",
   "scripts": {
     "test": "jest",
     "build": "tsc"
@@ -11,16 +12,30 @@
     "type": "git",
     "url": "https://gitlab.robingenz.de/dhbw-vs-projekt-1/rechenmodul-core.git"
   },
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Simon Eßlinger",
+      "email": "simon@esslinger.it",
+      "url": "http://esslinger.it"
+    },
+    {
+      "name": "Marvin Rothmann"
+    }
+  ],
+  "license": "MIT",
+  "files": [
+    "dist/*"
+  ],
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@types/jest": "^25.1.1",
+    "@types/node": "^13.5.3",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
     "prettier": "1.19.1",
     "typescript": "^3.7.5"
-  }
+  },
+  "private": true
 }
