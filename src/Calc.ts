@@ -38,8 +38,15 @@ export class Calc implements ICalc {
 
     return new Point(varianceX, varianceY);
   }
-  GetCovariance(points: IPoint[]): IPoint {
-    throw new Error("Method not implemented.");
+  GetCovariance(points: IPoint[]): number {
+    let oneDimensionalMean = this.GetOneDimensionalMean(points);
+    let sum = 0;
+    points.forEach(point => {
+      sum +=
+        (point.x - oneDimensionalMean.x) * (point.y - oneDimensionalMean.y);
+    });
+
+    return (1 / (points.length - 1)) * sum;
   }
   GetCorrelationCoefficient(points: IPoint[]): number {
     throw new Error("Method not implemented.");
