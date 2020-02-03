@@ -12,7 +12,7 @@ test('test pointlist for validity', () => {
     validatePointList([])
   }).toThrowError('Array must contain at least two points')
 
-  let pointsLengthTest: IPoint[] = []
+  const pointsLengthTest: IPoint[] = []
 
   for (let i = 0; i < 100; i++) {
     pointsLengthTest.push(new Point(10, 10))
