@@ -1,7 +1,13 @@
 /**
- * Ipoint A Point
+ * A Point.
  */
 export interface IPoint {
-  x: number;
-  y: number;
+  /**
+   * Value on the x-axis.
+   */
+  x: number
+  /**
+   * Value on the y-axis.
+   */
+  y: number
 }

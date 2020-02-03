@@ -1,5 +1,17 @@
+/**
+ * A regression graph.
+ */
 export interface IRegressionGraph {
-  xAxisSection: number;
-  incline: number;
-  quality: number;
+  /**
+   * Y-axis section.
+   */
+  yAxisSection: number
+  /**
+   * Incline of the regression graph.
+   */
+  incline: number
+  /**
+   * Quality of the regression graph.
+   */
+  quality: number
 }
