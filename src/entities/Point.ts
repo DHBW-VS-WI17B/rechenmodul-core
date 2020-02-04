@@ -5,6 +5,6 @@ export class Point implements IPoint {
     this.x = x
     this.y = y
   }
-  x: number
-  y: number
+  readonly x: number
+  readonly y: number
 }
