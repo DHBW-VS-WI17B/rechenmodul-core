@@ -5,11 +5,21 @@ import { calcVariance } from './calcVariance'
 /**
  * Calculates the correlation coefficient according to Pearson.
  * @param points List of points
+ * @param variance Variance for given list of points
+ * @param covariance Covariance for given list of points
  * @returns Correlation coefficient
  */
-export async function calcCorrelationCoefficient(points: IPoint[]): Promise<number> {
-  const covariance = await calcCovariance(points)
-  const variance = await calcVariance(points)
+export async function calcCorrelationCoefficient(
+  points: IPoint[],
+  variance?: IPoint,
+  covariance?: number
+): Promise<number> {
+  if (variance === undefined) {
+    variance = await calcVariance(points)
+  }
+  if (covariance === undefined) {
+    covariance = await calcCovariance(points)
+  }
 
   const sqrtVarianceXY = Math.sqrt(variance.x * variance.y)
 

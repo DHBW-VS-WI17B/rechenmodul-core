@@ -5,6 +5,7 @@
 export * from './calcCorrelationCoefficient'
 export * from './calcCovariance'
 export * from './calcOneDimensionalMean'
+export * from './calcQuality'
 export * from './calcRegressionGraph'
 export * from './calcVariance'
 export * from './validatePointList'
