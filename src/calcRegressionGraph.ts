@@ -6,6 +6,12 @@ import { calcVariance } from './calcVariance'
 import { calcOneDimensionalMean } from './calcOneDimensionalMean'
 import { calcCorrelationCoefficient } from './calcCorrelationCoefficient'
 
+async function calcQuality(points: IPoint[]): Promise<number> {
+  const correlationCoefficient = await calcCorrelationCoefficient(points)
+
+  return Math.pow(correlationCoefficient, 2)
+}
+
 /**
  * Calculates the regression graph.
  * @param points List of points
@@ -26,7 +32,7 @@ export async function calcRegressionGraph(points: IPoint[]): Promise<IRegression
     xAxisSection = points[0].x
   }
 
-  const quality = Math.pow(await calcCorrelationCoefficient(points), 2)
+  const quality = await calcQuality(points)
 
   return new RegressionGraph(yAxisSection, xAxisSection, incline, quality)
 }
