@@ -7,6 +7,10 @@ import { Point } from './entities/Point'
  * @returns One dimensional mean
  */
 export async function calcOneDimensionalMean(points: IPoint[]): Promise<IPoint> {
+  if (points.length < 1) {
+    throw new Error('Can not calculate the one dimensional mean for an empty list of points.')
+  }
+
   let sumX = 0
   let sumY = 0
 
