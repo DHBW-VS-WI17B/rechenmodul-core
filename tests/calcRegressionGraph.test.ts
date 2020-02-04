@@ -23,10 +23,29 @@ test('calculates the regression graph for low correlative points', async () => {
 
   const result = await calcRegressionGraph(pointList)
 
+  expect(result.incline).toBe(0)
+  expect(result.quality).toBe(0)
+  expect(result.yAxisSection).toBe(5)
+  expect(result.xAxisSection).toBe(undefined)
+})
+
+test('calculates the regression graph for low correlative points', async () => {
+
+  let pointList = [
+    new Point(5,3),
+    new Point(6,3),
+    new Point(2,3),
+    new Point(3,3),
+    new Point(9,3),
+    new Point(12,3),
+  ]
+
+  const result = await calcRegressionGraph(pointList)
+
   expect(result.incline).toBe(undefined)
   expect(result.quality).toBe(0)
   expect(result.yAxisSection).toBe(undefined)
-  expect(result.xAxisSection).toBe(5)
+  expect(result.xAxisSection).toBe(3)
 })
 
 test('calculates the regression graph for high correlative points', async () => {
