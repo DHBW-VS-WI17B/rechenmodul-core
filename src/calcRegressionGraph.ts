@@ -16,19 +16,17 @@ export async function calcRegressionGraph(points: IPoint[]): Promise<IRegression
   const variance = await calcVariance(points)
   const oneDimensionalMean = await calcOneDimensionalMean(points)
 
-  let incline = 0
-  let xAxisSection = 0
-  let yAxisSection = 0
-  let isParallelToXAxis = false
+  let incline = undefined
+  let xAxisSection = undefined
+  let yAxisSection = undefined
   if (variance.x != 0) {
     incline = covariance / variance.x
     yAxisSection = oneDimensionalMean.y - incline * oneDimensionalMean.x
   } else {
     xAxisSection = points[0].x
-    isParallelToXAxis = true
   }
 
   const quality = Math.pow(await calcCorrelationCoefficient(points), 2)
 
-  return new RegressionGraph(isParallelToXAxis, yAxisSection, xAxisSection, incline, quality)
+  return new RegressionGraph(yAxisSection, xAxisSection, incline, quality)
 }
