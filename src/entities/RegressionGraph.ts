@@ -1,12 +1,22 @@
 import { IRegressionGraph } from '../contracts/IRegressionGraph'
 
 export class RegressionGraph implements IRegressionGraph {
-  constructor() {
-    this.yAxisSection = 0
-    this.incline = 0
-    this.quality = 0
+  constructor(
+    isParallelToXAxis: boolean,
+    yAxisSection: number,
+    xAxisSection: number,
+    incline: number,
+    quality: number
+  ) {
+    this.isParallelToXAxis = isParallelToXAxis
+    this.xAxisSection = xAxisSection
+    this.yAxisSection = yAxisSection
+    this.incline = incline
+    this.quality = quality
   }
-  yAxisSection: number
-  incline: number
-  quality: number
+  readonly isParallelToXAxis: boolean
+  readonly yAxisSection: number
+  readonly xAxisSection: number
+  readonly incline: number
+  readonly quality: number
 }
