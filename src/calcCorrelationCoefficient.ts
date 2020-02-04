@@ -11,7 +11,11 @@ export async function calcCorrelationCoefficient(points: IPoint[]): Promise<numb
   const covariance = await calcCovariance(points)
   const variance = await calcVariance(points)
 
-  const sqrtVariance = Math.sqrt(variance.x * variance.y)
+  const sqrtVarianceXY = Math.sqrt(variance.x * variance.y)
 
-  return covariance / sqrtVariance
+  if (sqrtVarianceXY == 0) {
+    return 0
+  }
+
+  return covariance / sqrtVarianceXY
 }
