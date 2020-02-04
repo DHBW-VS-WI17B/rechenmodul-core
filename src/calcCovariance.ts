@@ -7,6 +7,10 @@ import { calcOneDimensionalMean } from './calcOneDimensionalMean'
  * @returns Covariance
  */
 export async function calcCovariance(points: IPoint[]): Promise<number> {
+  if (points.length < 2) {
+    throw new Error('Can not calculate the covariance for a list of one or less points.')
+  }
+
   const mean = await calcOneDimensionalMean(points)
   let sum = 0
   points.forEach(point => {
