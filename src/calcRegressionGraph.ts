@@ -12,17 +12,23 @@ import { calcCorrelationCoefficient } from './calcCorrelationCoefficient'
  * @returns Regression graph
  */
 export async function calcRegressionGraph(points: IPoint[]): Promise<IRegressionGraph> {
-  const graph = new RegressionGraph()
-
   const covariance = await calcCovariance(points)
   const variance = await calcVariance(points)
   const oneDimensionalMean = await calcOneDimensionalMean(points)
 
-  graph.incline = covariance / variance.x
+  let incline = 0
+  let xAxisSection = 0
+  let yAxisSection = 0
+  let isParallelToXAxis = false
+  if (variance.x > 0) {
+    incline = covariance / variance.x
+    yAxisSection = oneDimensionalMean.y - incline * oneDimensionalMean.x
+  } else {
+    xAxisSection = points[0].x
+    isParallelToXAxis = true
+  }
 
-  graph.yAxisSection = oneDimensionalMean.y - graph.incline * oneDimensionalMean.x
+  const quality = Math.pow(await calcCorrelationCoefficient(points), 2)
 
-  graph.quality = Math.pow(await calcCorrelationCoefficient(points), 2)
-
-  return graph
+  return new RegressionGraph(isParallelToXAxis, yAxisSection, xAxisSection, incline, quality)
 }
