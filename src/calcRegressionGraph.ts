@@ -20,7 +20,7 @@ export async function calcRegressionGraph(points: IPoint[]): Promise<IRegression
   let xAxisSection = 0
   let yAxisSection = 0
   let isParallelToXAxis = false
-  if (variance.x > 0) {
+  if (variance.x != 0) {
     incline = covariance / variance.x
     yAxisSection = oneDimensionalMean.y - incline * oneDimensionalMean.x
   } else {
