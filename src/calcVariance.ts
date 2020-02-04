@@ -8,6 +8,10 @@ import { calcOneDimensionalMean } from './calcOneDimensionalMean'
  * @returns Variance
  */
 export async function calcVariance(points: IPoint[]): Promise<IPoint> {
+  if (points.length < 2) {
+    throw new Error('Can not calculate the variance for a list of one or less points.')
+  }
+
   const mean = await calcOneDimensionalMean(points)
 
   let sumX = 0
