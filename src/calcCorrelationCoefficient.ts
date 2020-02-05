@@ -23,9 +23,13 @@ export async function calcCorrelationCoefficient(
 
   const sqrtVarianceXY = Math.sqrt(variance.x * variance.y)
 
-  if (sqrtVarianceXY == 0) {
-    return 0
-  }
+  if (sqrtVarianceXY == 0) return 0
 
-  return covariance / sqrtVarianceXY
+  const correlationCoefficient = covariance / sqrtVarianceXY
+
+  // floating point bug fixes. e.g.: [[{"x":5699641,"y":-746797428},{"x":6,"y":522707547}]] results in -1.0000000000000002
+  if (correlationCoefficient > 1) return 1
+  if (correlationCoefficient < -1) return -1
+
+  return correlationCoefficient
 }
