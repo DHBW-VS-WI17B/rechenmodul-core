@@ -12,7 +12,7 @@ export function validatePointList(points: IPoint[]): void {
     throw new Error('Array must contain 100 or less entries')
   }
 
-  let checked: IPoint[] = []
+  const checked: IPoint[] = []
 
   points.forEach(point => {
     if (checked.indexOf(point) == -1) {

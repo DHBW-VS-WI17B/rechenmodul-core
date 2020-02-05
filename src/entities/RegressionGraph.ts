@@ -1,12 +1,19 @@
 import { IRegressionGraph } from '../contracts/IRegressionGraph'
 
 export class RegressionGraph implements IRegressionGraph {
-  constructor() {
-    this.yAxisSection = 0
-    this.incline = 0
-    this.quality = 0
+  constructor(
+    yAxisSection: number | undefined,
+    xAxisSection: number | undefined,
+    incline: number | undefined,
+    quality: number
+  ) {
+    this.xAxisSection = xAxisSection
+    this.yAxisSection = yAxisSection
+    this.incline = incline
+    this.quality = quality
   }
-  yAxisSection: number
-  incline: number
-  quality: number
+  readonly yAxisSection: number | undefined
+  readonly xAxisSection: number | undefined
+  readonly incline: number | undefined
+  readonly quality: number
 }
