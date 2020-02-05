@@ -20,10 +20,9 @@ export async function calcCovariance(
 
   const mean: IPoint = oneDimensionalMean
 
-  let sum = 0
-  points.forEach(point => {
-    sum += (point.x - mean.x) * (point.y - mean.y)
-  })
+  const sum = points.reduce((sum, point) => {
+    return sum + (point.x - mean.x) * (point.y - mean.y)
+  }, 0)
 
   return (1 / (points.length - 1)) * sum
 }
