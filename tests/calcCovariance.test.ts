@@ -12,9 +12,26 @@ test('the covariance for equal points is always 0', async () => {
   expect(await calcCovariance(pointsZero)).toBe(0)
 })
 
-test('the covariance of points where x and y are the same is always greater than or equal to 0', async () => {
+test('the covariance of points (integer values) where x and y are the same is always greater than or equal to 0', async () => {
   fc.assert(
     fc.asyncProperty(fc.array(fc.integer()), async values => {
+      const points = values.map(v => {
+        return new Point(v, v)
+      })
+      if (points.length > 1) {
+        const covariance = await calcCovariance(points)
+        expect(covariance).toBeGreaterThanOrEqual(0)
+      }
+    }),
+    {
+      seed: 4815162342,
+    }
+  )
+})
+
+test('the covariance of points (float values) where x and y are the same is always greater than or equal to 0', async () => {
+  fc.assert(
+    fc.asyncProperty(fc.array(fc.float()), async values => {
       const points = values.map(v => {
         return new Point(v, v)
       })
