@@ -2,6 +2,14 @@ import { IPoint } from './contracts/IPoint'
 import { Point } from './entities/Point'
 import { calcOneDimensionalMean } from './calcOneDimensionalMean'
 
+function calcSingleVariance(values: number[], mean: number): number {
+  const sum = values.reduce((sum, value) => {
+    return sum + Math.pow(value - mean, 2)
+  }, 0)
+
+  return (1 / (values.length - 1)) * sum
+}
+
 /**
  * Calculates the variance.
  * @param points List of points
@@ -15,18 +23,16 @@ export async function calcVariance(points: IPoint[], oneDimensionalMean?: IPoint
   if (oneDimensionalMean === undefined) {
     oneDimensionalMean = await calcOneDimensionalMean(points)
   }
-
   const mean: IPoint = oneDimensionalMean
 
-  let sumX = 0
-  let sumY = 0
-  points.forEach(point => {
-    sumX += Math.pow(point.x - mean.x, 2)
-    sumY += Math.pow(point.y - mean.y, 2)
-  })
-
-  const varianceX = (1 / (points.length - 1)) * sumX
-  const varianceY = (1 / (points.length - 1)) * sumY
+  const varianceX = calcSingleVariance(
+    points.map(p => p.x),
+    mean.x
+  )
+  const varianceY = calcSingleVariance(
+    points.map(p => p.y),
+    mean.y
+  )
 
   return new Point(varianceX, varianceY)
 }
