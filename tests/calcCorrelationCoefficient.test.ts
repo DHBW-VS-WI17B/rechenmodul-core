@@ -34,7 +34,7 @@ test('calculates the correlation coefficient for low correlation points', async 
   expect(await calcCorrelationCoefficient(pointsLow)).toBe(-1)
 })
 
-test.skip('the correlation coefficient is always between -1 and 1, including -1 and 1', async () => {
+test('the correlation coefficient is always between -1 and 1, including -1 and 1', async () => {
   fc.assert(
     fc.asyncProperty(
       fc.array(
@@ -50,6 +50,9 @@ test.skip('the correlation coefficient is always between -1 and 1, including -1 
           expect(correlationCoefficient).toBeGreaterThanOrEqual(-1)
         }
       }
-    )
+    ),
+    {
+      seed: 4815162342,
+    }
   )
 })
