@@ -20,9 +20,23 @@ const isValidOneDimensionalMean = (points: IPoint[], mean: IPoint): boolean => {
   return false
 }
 
-test('the one dimensional mean is never higher or lower than the extremes of the point array', async () => {
+test('the one dimensional mean is never higher or lower than the extremes of the point array (integers)', async () => {
   fc.assert(
     fc.asyncProperty(fc.array(fc.record({ x: fc.integer(), y: fc.integer() })), async points => {
+      if (points.length > 0) {
+        const oneDimensionalMean = await calcOneDimensionalMean(points)
+        expect(isValidOneDimensionalMean(points, oneDimensionalMean)).toBe(true)
+      }
+    }),
+    {
+      seed: 4815162342,
+    }
+  )
+})
+
+test('the one dimensional mean is never higher or lower than the extremes of the point array (floats)', async () => {
+  fc.assert(
+    fc.asyncProperty(fc.array(fc.record({ x: fc.float(), y: fc.float() })), async points => {
       if (points.length > 0) {
         const oneDimensionalMean = await calcOneDimensionalMean(points)
         expect(isValidOneDimensionalMean(points, oneDimensionalMean)).toBe(true)
