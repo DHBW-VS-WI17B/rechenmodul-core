@@ -2,6 +2,7 @@ import { calcRegressionGraph } from '../src/calcRegressionGraph'
 import { points } from './utils/testData'
 import { Point } from '../src/entities/Point'
 import * as fc from 'fast-check'
+import { IPoint } from '../src/contracts/IPoint'
 
 test('calculates the regression graph for the given list of points', async () => {
   const result = await calcRegressionGraph(points)
@@ -122,4 +123,28 @@ test('calculates the regression graph connecting 2 points', async () => {
   expect(result.quality).toBeCloseTo(1)
   expect(result.yAxisSection).toBeCloseTo(0.75)
   expect(result.xAxisSection).toBe(undefined)
+})
+
+function hasDifferentXValues(points: IPoint[]): boolean {
+  const testX: number = points[0].x
+  points.forEach(point => {
+    if (point.x != testX) return false
+  })
+  return true
+}
+
+test('if all points have no common x value the graph is of type y = incline * x + yAxisSection', async () => {
+  fc.assert(
+    fc.asyncProperty(fc.array(fc.record({ x: fc.integer(), y: fc.integer() })), async points => {
+      if (points.length > 1 && hasDifferentXValues(points)) {
+        const regressionGraph = await calcRegressionGraph(points)
+        expect(regressionGraph.xAxisSection).toBeUndefined()
+        expect(regressionGraph.incline).toBeDefined()
+        expect(regressionGraph.yAxisSection).toBeDefined()
+      }
+    }),
+    {
+      seed: 4815162342,
+    }
+  )
 })
