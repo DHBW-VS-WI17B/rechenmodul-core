@@ -110,12 +110,8 @@ test('if all points share the same x value the graph is of type x = xAxisSection
   )
 })
 
-
 test('calculates the regression graph connecting 2 points', async () => {
-  const pointList = [
-    new Point(1,1),
-    new Point(5,2),
-  ]
+  const pointList = [new Point(1, 1), new Point(5, 2)]
 
   const result = await calcRegressionGraph(pointList)
 
