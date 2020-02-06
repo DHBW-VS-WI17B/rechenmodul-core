@@ -78,7 +78,7 @@ test('calculates the regression graph for negative correlative points', async ()
   expect(result.xAxisSection).toBe(undefined)
 })
 
-test('calculates the regression graph for points with negativ values', async () => {
+test('calculates the regression graph for points with negative values', async () => {
   const pointList = [
     new Point(1, -1),
     new Point(5, 2),
