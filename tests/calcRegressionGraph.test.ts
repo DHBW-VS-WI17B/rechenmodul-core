@@ -106,6 +106,7 @@ test('if all points share the same x value the graph is of type x = xAxisSection
         expect(regressionGraph.xAxisSection).toBe(xValue)
         expect(regressionGraph.incline).toBeUndefined()
         expect(regressionGraph.yAxisSection).toBeUndefined()
+        expect(regressionGraph.quality).toBe(0)
       }
     }),
     {
@@ -141,6 +142,7 @@ test('if all points have no common x value the graph is of type y = incline * x 
         expect(regressionGraph.xAxisSection).toBeUndefined()
         expect(regressionGraph.incline).toBeDefined()
         expect(regressionGraph.yAxisSection).toBeDefined()
+        expect(regressionGraph.quality).toBeDefined()
       }
     }),
     {
