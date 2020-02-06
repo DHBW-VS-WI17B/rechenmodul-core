@@ -2,6 +2,7 @@ import { calcOneDimensionalMean } from '../src/calcOneDimensionalMean'
 import { points } from './utils/testData'
 import * as fc from 'fast-check'
 import { IPoint } from '../src/contracts/IPoint'
+import { Point } from '../src/entities/Point'
 
 test('calculates the one dimensional mean for the given list of points', async () => {
   const result = await calcOneDimensionalMean(points)
@@ -46,4 +47,14 @@ test('the one dimensional mean is never higher or lower than the extremes of the
       seed: 4815162342,
     }
   )
+})
+
+test('test ondimensional mean for same values', async () => {
+  let lst = [
+    new Point(1,1),
+    new Point(1,1)
+  ]
+
+  expect((await calcOneDimensionalMean(lst)).x).toBe(1)
+  expect((await calcOneDimensionalMean(lst)).y).toBe(1)
 })
