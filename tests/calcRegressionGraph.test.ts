@@ -1,6 +1,7 @@
 import { calcRegressionGraph } from '../src/calcRegressionGraph'
 import { points } from './utils/testData'
 import { Point } from '../src/entities/Point'
+import * as fc from 'fast-check'
 
 test('calculates the regression graph for the given list of points', async () => {
   const result = await calcRegressionGraph(points)
@@ -78,11 +79,11 @@ test('calculates the regression graph for negative correlative points', async ()
 
 test('calculates the regression graph for points with negativ values', async () => {
   const pointList = [
-    new Point(1,-1),
-    new Point(5,2),
-    new Point(2,3),
-    new Point(8,4),
-    new Point(-2,1),
+    new Point(1, -1),
+    new Point(5, 2),
+    new Point(2, 3),
+    new Point(8, 4),
+    new Point(-2, 1),
   ]
 
   const result = await calcRegressionGraph(pointList)
@@ -91,4 +92,20 @@ test('calculates the regression graph for points with negativ values', async () 
   expect(result.quality).toBeCloseTo(0.450496414)
   expect(result.yAxisSection).toBeCloseTo(0.857142857)
   expect(result.xAxisSection).toBe(undefined)
+})
+
+test('if all points share the same x value the graph is of type x = xAxisSection', async () => {
+  fc.assert(
+    fc.asyncProperty(fc.array(fc.integer()), fc.integer(), async (yValues, xValue) => {
+      if (yValues.length > 1) {
+        const points = yValues.map(yValue => {
+          return new Point(xValue, yValue)
+        })
+        const regressionGraph = await calcRegressionGraph(points)
+        expect(regressionGraph.xAxisSection).toBe(xValue)
+        expect(regressionGraph.incline).toBeUndefined()
+        expect(regressionGraph.yAxisSection).toBeUndefined()
+      }
+    })
+  )
 })
