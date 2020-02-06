@@ -106,7 +106,10 @@ test('if all points share the same x value the graph is of type x = xAxisSection
         expect(regressionGraph.incline).toBeUndefined()
         expect(regressionGraph.yAxisSection).toBeUndefined()
       }
-    })
+    }),
+    {
+      seed: 4815162342,
+    }
   )
 })
 
