@@ -2,6 +2,11 @@ import { IPoint } from './contracts/IPoint'
 import { Point } from './entities/Point'
 import { calcOneDimensionalMean } from './calcOneDimensionalMean'
 
+/**
+ * Calculates the variance for given list of numbers.
+ * @param values List of numbers
+ * @param mean Mean for given list of numbers
+ */
 function calcSingleVariance(values: number[], mean: number): number {
   const sum = values.reduce((sum, value) => {
     return sum + Math.pow(value - mean, 2)
@@ -11,7 +16,7 @@ function calcSingleVariance(values: number[], mean: number): number {
 }
 
 /**
- * Calculates the variance.
+ * Calculates the variance for given list of points
  * @param points List of points
  * @param oneDimensionalMean One dimensional mean for given points
  * @returns Variance
