@@ -1,5 +1,7 @@
 # rechenmodul-core
 
+[![CI](https://img.shields.io/github/workflow/status/DHBW-VS-WI17B/rechenmodul-core/CI/master)](https://github.com/DHBW-VS-WI17B/rechenmodul-core/actions) [![License](https://img.shields.io/github/license/DHBW-VS-WI17B/rechenmodul-core)](https://github.com/DHBW-VS-WI17B/rechenmodul-core/blob/master/LICENSE)
+
 Contains the math for the rechenmodul project.
 
 ## Development guide
