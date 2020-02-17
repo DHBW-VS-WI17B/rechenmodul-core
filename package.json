@@ -2,6 +2,10 @@
   "name": "@dhbw-vs-wi17b/rechenmodul-core",
   "version": "2.0.0",
   "description": "Contains the math for the rechenmodul project.",
+  "keywords": [
+    "math",
+    "learning"
+  ],
   "main": "dist/index.js",
   "types": "dist",
   "scripts": {
